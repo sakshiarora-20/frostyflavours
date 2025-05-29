@@ -1,3 +1,33 @@
 {% extends "base.html" %}
 {% block title %}Contact Us{% endblock title %}
-{% block body %}Contact Us page{% endblock body %}
+{% block body %}
+<div>
+  <img src="/static/contactus.avif" class="d-block w-100" alt="Contact" style="object-fit: cover; height:400px;">
+  <h2 class="text-center my-4">Contact Us</h2>
+  
+  <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top: 40px; margin-bottom: 40px;">
+    <form method="post" action="/contact" style="width: 100%; max-width: 500px;">
+      {% csrf_token %}
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Full Name">
+      </div>
+      <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Enter your Email id">
+      </div>
+      <div class="mb-3">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter your Phone Number">
+      </div>
+      <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" rows="3" placeholder="Enter your Message"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+{% endblock body %}
