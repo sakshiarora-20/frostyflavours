@@ -4,15 +4,13 @@ from myapp.models import Contact
 from django.contrib import messages
 from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.decorators import login_required
-
+from myapp.models import Flavour
+from django.db.models import Q
 
 @login_required
 def index(request):
-    context = {
-        "variable": "sending variable",
-        "variable2": "sending 2nd variable"
-    }
-    return render(request, "index.html", context)
+    flavours = Flavour.objects.all()
+    return render(request, "index.html", {'flavours': flavours})
 
 @login_required
 def about(request):
@@ -41,6 +39,7 @@ def user_login(request):
             messages.error(request, 'Invalid username or password.')
 
     return render(request, "signin.html")
+
 def logout_view(request):
     logout(request)
     return redirect("/signin")
@@ -59,3 +58,15 @@ def contact(request):
         messages.success(request, "Message sent successfully.")
         
     return render(request, "contact.html")
+
+
+def search_flavours(request):
+    query = request.GET.get('q')
+    if query:
+        results = Flavour.objects.filter(
+            Q(name__icontains=query) | Q(description__icontains=query)
+        )
+    else:
+        results = Flavour.objects.all()
+
+    return render(request, 'index.html', {'flavours': results, 'query': query})

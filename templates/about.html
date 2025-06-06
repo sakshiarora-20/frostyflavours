@@ -1,3 +1,35 @@
 {% extends "base.html" %}
 {% block title %}About Us{% endblock title %}
-{% block body %}About Us page{% endblock body %}
+{% block body %}
+
+<div class="container py-5">
+  <div class="row align-items-center">
+    <div class="col-md-6 mb-4 mb-md-0">
+      <img src="/static/about.avif" alt="Ice Cream Shop" class="img-fluid rounded shadow">
+    </div>
+    <div class="col-md-6">
+      <h2 class="fw-bold text-primary mb-3">About Frosty Flavours</h2>
+      <p class="lead">Welcome to <strong>Frosty Flavours</strong> — your neighborhood’s favorite destination for delightful scoops and sweet memories.</p>
+      <p>Since our launch, we’ve served joy in a cone to thousands of happy customers. Whether you’re a fan of classic vanilla or love experimenting with exotic flavors, we’ve got something for everyone.</p>
+      <p>Every batch is handcrafted with love using premium ingredients and a lot of passion. Our mission is simple: serve smiles with every scoop.</p>
+      <a href="/contact" class="btn btn-danger mt-3 px-4">Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="row mt-5 text-center">
+    <div class="col-md-4">
+      <h4 class="fw-semibold text-success">👨‍🍳 Crafted Daily</h4>
+      <p>Fresh ice cream made every single day in small batches.</p>
+    </div>
+    <div class="col-md-4">
+      <h4 class="fw-semibold text-warning">🌍 Locally Sourced</h4>
+      <p>We support local dairy farms and use organic ingredients.</p>
+    </div>
+    <div class="col-md-4">
+      <h4 class="fw-semibold text-info">💡 Unique Flavours</h4>
+      <p>From kulfi to cookie dough, we surprise your taste buds!</p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
